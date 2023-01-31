@@ -1,0 +1,28 @@
+components:
+  frontendProxy:
+    resources:
+      limits:
+        memory: 130Mi
+  featureflagService:
+    resources:
+      limits:
+        memory: 375Mi
+#  frontend:
+#    env:
+#      - name: PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+#        value: "http://otel-demo-collector.local:4318/v1/traces"
+
+opentelemetry-collector:
+  config:
+    exporters:
+      otlp:
+        endpoint: otel-demo-chronocollector-tracing:4317
+        tls:
+          insecure: true
+
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [otlp]
