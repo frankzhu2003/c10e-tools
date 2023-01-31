@@ -24,3 +24,4 @@ To install the chart with the release name my-otel-demo, run the following comma
 ```console
 helm install my-otel-demo open-telemetry/opentelemetry-demo --values my-values.yaml -n [namespace]
 ```
+NOTE: make sure to match the exposed service in "endpoint: otel-demo-chronocollector-tracing:4317"
