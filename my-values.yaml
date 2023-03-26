@@ -16,7 +16,8 @@ opentelemetry-collector:
   config:
     exporters:
       otlp:
-        endpoint: demo-sandbox-chronocollector-tracing:4317
+        endpoint: demo-loadgen-chronocollector-tracing:4317
+        #endpoint: demo-sandbox-chronocollector-tracing:4317
         tls:
           insecure: true
 
