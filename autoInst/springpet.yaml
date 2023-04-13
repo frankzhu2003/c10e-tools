@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: demo-sagar
+ namespace: opentelemetry-operator-system
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: demo-sagar
+ template:
+   metadata:
+     labels:
+       app: demo-sagar
+     annotations:
+       instrumentation.opentelemetry.io/inject-java: "true"
+       instrumentation.opentelemetry.io/container-names: "spring"
+   spec:
+     containers:
+     - name: spring
+       image: sagar27/petclinic-demo
+       ports:
+       - containerPort: 8080
