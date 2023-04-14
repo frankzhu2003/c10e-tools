@@ -2,7 +2,7 @@ apiVersion: opentelemetry.io/v1alpha1
 kind: Instrumentation
 metadata:
   name: otel-instrumentation
-  namespace: opentelemetry-operator-system
+  namespace: otel-auto-inst
 spec:
   exporter:
     endpoint: http://otel-collector:4317
