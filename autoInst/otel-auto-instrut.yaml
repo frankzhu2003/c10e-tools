@@ -3,7 +3,7 @@ apiVersion: opentelemetry.io/v1alpha1
 kind: OpenTelemetryCollector
 metadata:
   name: otel
-  namespace: opentelemetry-operator-system
+  namespace: otel-auto-inst
 spec:
   mode: deployment
   #mode: sidecar
