@@ -5,8 +5,8 @@ metadata:
   name: otel
   namespace: opentelemetry-operator-system
 spec:
-  #mode: deployment
-  mode: sidecar
+  mode: deployment
+  #mode: sidecar
   config: |
     receivers:
       otlp:
@@ -19,6 +19,7 @@ spec:
     exporters:
       #logging:
       otlp:
+        # change the endpoint according to the chronocollector tracing svc
         endpoint: "otel-auto-inst-chronocollector-tracing:4317"
         tls:
           insecure: true
