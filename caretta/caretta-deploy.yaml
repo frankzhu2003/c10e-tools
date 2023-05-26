@@ -1,0 +1,52 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: caretta-ingress
+  namespace: caretta
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host :  "caretta.local"
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: "/"
+            backend:
+              service:
+                name: caretta
+                port:
+                  number: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: caretta
+  namespace: caretta
+spec:
+  type: ClusterIP
+  selector:
+    app: caretta
+  ports:
+  - name: prometheus
+    port: 9090
+    targetPort: 7117
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: caretta
+  labels:
+      app: caretta
+  namespace: caretta
+spec:
+  endpoints: 
+  - port: prometheus
+    path: /metrics
+  namespaceSelector:
+    any: true
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "caretta"
