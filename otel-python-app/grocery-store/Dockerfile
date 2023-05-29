@@ -38,7 +38,7 @@ RUN pip install flask requests structlog
 
 RUN pip install opentelemetry-api opentelemetry-sdk opentelemetry-instrumentation opentelemetry-propagator-b3 opentelemetry-distro
 
-RUN pip install opentelemetry-instrumentation-flask   opentelemetry-instrumentation-requests   
+RUN pip install flask opentelemetry-instrumentation-flask requests opentelemetry-instrumentation-requests   
 
 RUN opentelemetry-bootstrap -a install
 
