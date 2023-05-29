@@ -50,7 +50,7 @@ RUN pip install opentelemetry-exporter-otlp-proto-grpc
 
 # ADD ./product.py ./ 
 
-COPY ./local_machine_resource_detector.py ./
+COPY ./localmachineresourcedetector.py ./
 
 COPY ./common.py ./
 
