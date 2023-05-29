@@ -28,7 +28,7 @@ RUN /bin/sh -c set -ex; 		savedAptMark="$(apt-mark showmanual)"; 	apt-get update
 
 CMD ["python3"]
 
-RUN /bin/sh -c mkdir /app
+# RUN /bin/sh -c mkdir /app
 
 WORKDIR /app
 
