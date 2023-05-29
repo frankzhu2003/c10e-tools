@@ -48,12 +48,11 @@ RUN pip install opentelemetry-exporter-otlp-proto-grpc
 
 # RUN pip install -e "git+https://github.com/codeboten/opentelemetry-python.git@metric-reader-storage-2378#egg=opentelemetry-sdk&subdirectory=opentelemetry-sdk"
 
-
-COPY ./common.py ./ 
-
 # ADD ./product.py ./ 
 
 COPY ./local_machine_resource_detector.py ./
+
+COPY ./common.py ./
 
 COPY ./grocery_store.py ./
 
