@@ -38,6 +38,10 @@ RUN pip install flask requests structlog
 
 RUN pip install   opentelemetry-api   opentelemetry-instrumentation-flask   opentelemetry-instrumentation-requests   opentelemetry-propagator-b3 
 
+RUN pip install opentelemetry-distro
+
+# RUN opentelemetry-bootstrap -a install
+
 RUN pip install -e "git+https://github.com/codeboten/opentelemetry-python.git#egg=opentelemetry-exporter-otlp-proto-grpc&subdirectory=exporter/opentelemetry-exporter-otlp-proto-grpc" 
 
 RUN pip install -e "git+https://github.com/codeboten/opentelemetry-python.git@metric-reader-storage-2378#egg=opentelemetry-sdk&subdirectory=opentelemetry-sdk"
