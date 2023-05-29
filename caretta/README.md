@@ -23,5 +23,5 @@ server { # simple reverse-proxy
 ```
 git clone https://github.com/chronosphereio/saleseng-demo-prod
 
-helm install chronocollector-svcmon ./chronocollector-servicemonitor-chart --set orgName=$CHRONOSPHERE_ORG_NAME --set apiToken=$CHRONOSPHERE_API_TOKEN -n caretta
+helm install caretta-chronocollector-svcmon ./chronocollector-servicemonitor-chart --set orgName=$CHRONOSPHERE_ORG_NAME --set apiToken=$CHRONOSPHERE_API_TOKEN -n caretta
 ```

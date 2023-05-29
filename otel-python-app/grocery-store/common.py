@@ -5,7 +5,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
 from opentelemetry.semconv.resource import ResourceAttributes
 from opentelemetry.semconv.trace import SpanAttributes
-from local_machine_resource_detector import LocalMachineResourceDetector
+from localmachineresourcedetector import LocalMachineResourceDetector
 import logging
 from opentelemetry.sdk._logs.export import ConsoleLogExporter, BatchLogRecordProcessor
 from opentelemetry.sdk._logs import (
@@ -31,7 +31,8 @@ def configure_logger(name, version):
             }
         )
     )
-    provider = LogEmitterProvider(resource=resource)
+    # provider = LogEmitterProvider(resource=resource)
+    provider = LoggerProvider(resource=resource)
     set_log_emitter_provider(provider)
     exporter = OTLPLogExporter()
     provider.add_log_processor(BatchLogProcessor(exporter))
