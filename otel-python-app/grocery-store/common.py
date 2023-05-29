@@ -7,7 +7,7 @@ from opentelemetry.semconv.resource import ResourceAttributes
 from opentelemetry.semconv.trace import SpanAttributes
 # from local_machine_resource_detector import LocalMachineResourceDetector
 import logging
-from opentelemetry.sdk._logs.export import ConsoleLogExporter, BatchLogProcessor
+from opentelemetry.sdk._logs.export import ConsoleLogExporter, BatchLogRecordProcessor
 from opentelemetry.sdk._logs import (
     LogEmitterProvider,
     OTLPHandler,
