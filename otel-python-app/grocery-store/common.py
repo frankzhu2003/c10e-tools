@@ -9,9 +9,9 @@ from opentelemetry.semconv.trace import SpanAttributes
 import logging
 from opentelemetry.sdk._logs.export import ConsoleLogExporter, BatchLogRecordProcessor
 from opentelemetry.sdk._logs import (
-    LogEmitterProvider,
+    LogProvider,
     OTLPHandler,
-    set_log_emitter_provider,
+    set_log_provider,
 )
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.exporter.otlp.proto.grpc._metric_exporter import OTLPMetricExporter
