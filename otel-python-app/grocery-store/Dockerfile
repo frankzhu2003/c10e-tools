@@ -40,7 +40,7 @@ RUN pip install   opentelemetry-api   opentelemetry-instrumentation-flask   open
 
 RUN pip install opentelemetry-distro
 
-# RUN opentelemetry-bootstrap -a install
+RUN opentelemetry-bootstrap -a install
 
 RUN pip install -e "git+https://github.com/codeboten/opentelemetry-python.git#egg=opentelemetry-exporter-otlp-proto-grpc&subdirectory=exporter/opentelemetry-exporter-otlp-proto-grpc" 
 
