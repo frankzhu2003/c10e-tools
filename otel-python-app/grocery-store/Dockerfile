@@ -36,9 +36,9 @@ RUN apt update &&     apt install -y iproute2 iputils-ping stress git
 
 RUN pip install flask requests structlog
 
-RUN pip install   opentelemetry-api   opentelemetry-instrumentation-flask   opentelemetry-instrumentation-requests   opentelemetry-propagator-b3 
+RUN pip install opentelemetry-api opentelemetry-sdk opentelemetry-instrumentation opentelemetry-propagator-b3 opentelemetry-distro
 
-RUN pip install opentelemetry-distro
+RUN pip install opentelemetry-instrumentation-flask   opentelemetry-instrumentation-requests   
 
 RUN opentelemetry-bootstrap -a install
 
