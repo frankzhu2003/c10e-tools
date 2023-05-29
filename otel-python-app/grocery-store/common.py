@@ -11,7 +11,7 @@ from opentelemetry.sdk._logs.export import ConsoleLogExporter, BatchLogRecordPro
 from opentelemetry.sdk._logs import (
     # LogEmitterProvider,
     # OTLPHandler,
-    # set_log_provider,
+    set_logger_provider,
     LoggerProvider,
     LoggingHandler,
     LogRecordProcessor,
@@ -33,7 +33,7 @@ def configure_logger(name, version):
     )
     # provider = LogEmitterProvider(resource=resource)
     provider = LoggerProvider(resource=resource)
-    set_log_emitter_provider(provider)
+    set_logger_provider(provider)
     exporter = OTLPLogExporter()
     provider.add_log_processor(BatchLogProcessor(exporter))
     logger = logging.getLogger(name)
