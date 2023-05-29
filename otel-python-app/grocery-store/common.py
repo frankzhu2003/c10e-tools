@@ -40,10 +40,10 @@ def configure_logger(name, version):
     provider = LoggerProvider(resource=resource)
     set_logger_provider(provider)
     exporter = OTLPLogExporter()
-    provider.add_log_processor(BatchLogProcessor(exporter))
+    provider.add_log_record_processor(BatchLogRecordProcessor(exporter))
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
-    handler = OTLPHandler()
+    handler = LoggingHandler()
     logger.addHandler(handler)
     return logger
 
