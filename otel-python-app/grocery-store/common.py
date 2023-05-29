@@ -11,11 +11,16 @@ from opentelemetry.sdk._logs.export import ConsoleLogExporter, BatchLogRecordPro
 from opentelemetry.sdk._logs import (
     # LogEmitterProvider,
     # OTLPHandler,
-    set_logger_provider,
     LoggerProvider,
     LoggingHandler,
     LogRecordProcessor,
 )
+from opentelemetry._logs import (
+    # LogEmitterProvider,
+    # OTLPHandler,
+    set_logger_provider,
+)
+
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
 from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
