@@ -21,13 +21,24 @@ opentelemetry-collector:
         endpoint: demo-sandbox-chronocollector-tracing:4317
         tls:
           insecure: true
-
+      # otlphttp:
+      #   endpoint: "http://cloud.us.humio.com/api/v1/ingest/otlp"
+      #   headers:
+      #     Authorization: "Bearer $ingest-token"
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
           exporters: [otlp]
+        # metrics:
+        #   receivers: [otlp]
+        #   processors: [batch]
+        #   exporters: [prometheus]
+        # logs:
+        #   receivers: [otlp]
+        #   processors: [batch]
+        #   exporters: [logging, otlphttp]
 
 
 # opentelemetry-collector:
