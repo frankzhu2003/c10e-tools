@@ -7,6 +7,7 @@ components:
     resources:
       limits:
         memory: 375Mi
+  
 #  frontend:
 #    env:
 #      - name: PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
@@ -14,11 +15,15 @@ components:
 
 
 opentelemetry-collector:
+  resources:
+    limits:
+      memory: 725Mi
   config:
     exporters:
       otlp:
-        #endpoint: demo-loadgen-chronocollector-tracing:4317
-        endpoint: demo-sandbox-chronocollector-tracing:4317
+        endpoint: demo-prod-chronocollector-tracing:4317
+        # endpoint: demo-sandbox-chronocollector-tracing:4317
+        # endpoint: partner-threec-chronocollector-tracing:4317
         tls:
           insecure: true
       # otlphttp:
@@ -31,10 +36,10 @@ opentelemetry-collector:
           receivers: [otlp]
           processors: [batch]
           exporters: [otlp]
-        # metrics:
-        #   receivers: [otlp]
-        #   processors: [batch]
-        #   exporters: [prometheus]
+        metrics:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [prometheus]
         # logs:
         #   receivers: [otlp]
         #   processors: [batch]
