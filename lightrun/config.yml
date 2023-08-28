@@ -132,10 +132,11 @@ discovery:
       scrape_interval: 30s
 # scrape_timeout: Per-scrape timeout when scraping this job.
       scrape_timeout: 30s
+      metrics_path: /actuator/prometheus
 # static_configs: List of labeled statically configured targets for this job.
       static_configs:
 # Note: make sure to update the target to correct endpoint.
-        - targets: ['localhost:8080/actuator/prometheus']
+        - targets: ['localhost:8080']
 
 # Push configures push mechanisms to send metrics.
 # prometheusRemoteWrite is configuration for prometheus remote write, that allows forwarding remote write requests to Chronosphere.
