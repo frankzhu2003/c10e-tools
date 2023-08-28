@@ -21,9 +21,10 @@ opentelemetry-collector:
   config:
     exporters:
       otlp:
-        endpoint: demo-prod-chronocollector-tracing:4317
+        # endpoint: demo-prod-chronocollector-tracing:4317
         # endpoint: demo-sandbox-chronocollector-tracing:4317
-        # endpoint: partner-threec-chronocollector-tracing:4317
+        #endpoint: partner-threec-chronocollector-tracing:4317
+        endpoint: rc-dev-autonomy-chronocollector-tracing:4317
         tls:
           insecure: true
       # otlphttp:
